@@ -60,7 +60,7 @@ class Character implements Fighter {
   }
 
   receiveDamage(attackPoints: number): number {
-    const receivedDamage = this._defense - attackPoints;
+    const receivedDamage = attackPoints - this._defense;
 
     if (receivedDamage > 0) {
       this._lifePoints -= receivedDamage;
@@ -73,7 +73,6 @@ class Character implements Fighter {
 
   attack(enemy: Fighter): void {
     enemy.receiveDamage(this._strength);
-    console.log('RECEBA');
   }
 
   levelUp(): void {
@@ -91,7 +90,6 @@ class Character implements Fighter {
 
   special(enemy: Fighter): void {
     enemy.receiveDamage(this._strength / getRandomInt(1, 10));
-    console.log('TOME ATAQUE RANDOMICO');
   }
 }
 
